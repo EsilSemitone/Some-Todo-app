@@ -5,15 +5,21 @@
 }
 
 :root {
-    --mainBgColor: #f3f6fd
+    --mainBgColor: #f3f6fd;
+    --secondFontColor: #232360;
+    --grayFontColor: #768396;
+    --mainFont: 'Comfortaa';
+    --secondFont: ;
 }
 
 body {
     background-color: var(--mainBgColor);
+    font-family: var(--mainFont);
 }
 
 .app {
     display: flex;
+    /* gap: 50px; */
 }
 
 .panel {
@@ -77,6 +83,223 @@ body {
     cursor: pointer;
 }
 
-.content {
+.menu__add:hover {
+    background-color: #ececff;
+}
 
+.content {
+    align-items: center;
+    min-width: 900px;
+    padding: 45px;
+    font-family: var(--mainFont), sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.header_title {
+    font-size: 30px;
+    line-height: 33px;
+    
+}
+.progress {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 235px;
+}
+.progress__text {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+}
+.progress__name {
+    font-size: 14px;
+    color:  var(--secondFontColor);
+}
+.progress__percent {
+    color:  var(--grayFontColor); 
+}
+.progress__bar {
+    width: 100%;
+    background-color: #e6e9ed;
+    border-radius: 4px;
+    height: 6px;
+    position: relative;
+}
+.progress__cover-bar {
+    transition: width 0.2s ease-out;
+    position: absolute;
+    width: 0%;
+    background-color: #5051f9;
+    border-radius: 4px;
+    height: 6px;
+}
+
+.habbits__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.habbit {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 1px 3px rgb(173, 186, 247);
+}
+.habbit__day {
+    padding: 20px 40px;
+    min-width: 150px;
+    
+    background-color: #fbfaff;
+    border-right: 1px solid #e7ebfb;
+    border-radius: 10px 0 0 10px;
+    
+}
+.habbit__comment {
+    padding: 20px 25px;
+    font-size: 14px;
+}
+
+.habbit__delete {
+    margin-left: auto;
+    margin-right: 15px;
+    border: none;
+    background: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.habbit__delete:hover {
+    background: #eff2ff;
+}
+
+.input {
+    outline: none;
+    background-color: white;
+    border: 1px solid #e7ebfb;
+    border-radius: 9px;
+    padding: 12px 20px;
+    font-family: var(--mainFont);
+    flex: 1;
+    padding-left: 50px;
+    
+}
+
+.input:focus {
+    border: 1px solid #d8dced;
+}
+
+.input.error {
+    border: 1px solid red;
+}
+
+.habbit__form {
+    position: relative;
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    width: 100%;
+    padding: 0 20px;
+    
+}
+
+.habbit__done {
+    font-family: var(--mainFont);
+    border: none;
+    color: rgb(79, 76, 76);
+    /* color: #5051f9; */
+    /* background-color: #edecfe; */
+    border-radius: 10px;
+    padding: 14px 30px ;
+    cursor: pointer;
+}
+
+.habbit__done:hover {
+    background-color: #bebccf;
+}
+
+.input__icon {
+    position: absolute;
+    top: 10px;
+    left: 45px;
+}
+
+.cover {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cover__hidden {
+    display: none;
+}
+
+.popap {
+    background-color: white;
+    box-shadow: 0px 8px 14px 12px rgba(56, 56, 56, 0.05);
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popap__close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.popap__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.icon__label {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.icon__select {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.menu__item {
+}
+
+.popap__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.popap__form .input {
+    width: 100%;
+}
+
+.popap__button {
+    margin-top: 12px;
+    width: 140px;
 }

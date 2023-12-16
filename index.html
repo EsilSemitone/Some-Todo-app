@@ -18,28 +18,53 @@
             <img src="images/logo.svg" alt="logo">
             <nav class="menu">
 
-                <div class="menu__list">
-
-                    <button class="menu__item menu__item--active">
-                        <img src="/images/sport.svg" alt="water">
-                    </button>
-                    <button class="menu__item">
-                        <img src="/images//water.svg" alt="water">
-                    </button>
-                    <button class="menu__item">
-                        <img src="/images/food.svg" alt="food">
-                    </button>
-                </div>
-                <button class="menu__add">    
+                <div class="menu__list"></div>
+                <button class="menu__add" onclick="togglePopap()">    
                     <img src="/images/add.svg" alt="add">
                 </button>
             </nav>
         </div>
         <div class="content">
-
-            content
+            <div class="header">
+                <h1 class="header_title">-</h1>
+                <div class="progress">
+                    <div class="progress__text">
+                        <div class="progress__name">Прогресс</div>
+                        <div class="progress__percent">0%</div>
+                    </div>
+                    <div class="progress__bar">
+                        <div class="progress__cover-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <main>
+                <div class="habbits__container">
+                    
+                </div>
+            </main>
         </div>
     </div>
+    <div class="cover__hidden" id="cover">
+        <div class="popap">
+            <h2 class="popap__title">Новая привычка</h2>
+            <div class="icon__label">Иконка</div>
+            <div class="icon__select">
+                <button class="menu__item menu__item--active" onclick="setIcon(this, 'sport')"><img src="./images/sport.svg" alt="sport"></button>
+                <button class="menu__item" onclick="setIcon(this, 'food')"><img src="./images/food.svg" alt="food"></button>
+                <button class="menu__item" onclick="setIcon(this, 'water')"><img src="./images/water.svg" alt="water"></button>
+            </div>
+            <form class="popap__form" onsubmit="addHabbit(event)">  
+                <input class="input" type="text" name="name" placeholder="Название">
+                <input class="input" type="text" name="icon" hidden="hidden" value="sport">
+                <input class="input" type="number" name="target" placeholder="Цель">
+                <button class="habbit__done popap__button" >Добавить</button>
+            </form>
+            <button class="popap__close" onclick="togglePopap()"><img src="./images/close.svg" alt="Закрыть"></button>
+        </div>
+    </div>
+    
+    <!-- <script type="module" src="./scripts/globalConsts.js"></script>
+    <script type="module" src="./scripts/utils.js"></script> -->
     <script src="./scripts/app.js"></script>
 </body>
 </html>
