@@ -44,7 +44,10 @@ function reRenderMenu(activeHabbit) {
             if (habbit.id == activeHabbit.id) {
                 element.classList.add('menu__item--active');
             }
-            element.innerHTML = `<img src="/images/${habbit.icon}.svg" alt="${habbit.name}">`
+            element.innerHTML = `<img src="/images/${habbit.icon}.svg" alt="${habbit.name}">
+                                <button class="delete__habbit">
+                                <img src="./images/deleteHabbit.svg" alt="" onclick="deleteHabbit(this)">
+                                </button>`
             page.menu.appendChild(element);
 
             continue;
@@ -113,6 +116,7 @@ function renderContent(activeHabbit) {
 
 function rerender(activeHabbitId) {
     globalActiveHabbitId = activeHabbitId;
+    console.log(`set ${activeHabbitId}`)
     const activeHabbit = habbits.find(habbit => habbit.id === activeHabbitId);
 
     if (!activeHabbit) {
@@ -151,9 +155,11 @@ function addDays(event) {
                 ...habbit,
                 days: habbit.days.concat([{comment}])
             }
+            
         }
         return habbit;
     })
+    console.log(habbits, globalActiveHabbitId)
     form['comment'].value = '';
     rerender(globalActiveHabbitId);
 
@@ -243,6 +249,25 @@ function addHabbit(event) {
     clearForm(form);
     togglePopap();
     rerender(habbits.length);
+    
+}
+
+function deleteHabbit(elem) {
+    const thisHabbit = elem.parentNode.parentNode
+
+    const thisHabbitid = thisHabbit.getAttribute('menu-habbit-id')
+    habbits.splice(thisHabbitid - 1, 1);
+    let count = 1;
+    habbits.map(habbit => {
+        habbit.id = count;
+        count++
+    })
+
+    page.menu.innerHTML = '';
+    document.location.hash = '';
+    globalActiveHabbitId -= 1;
+    rerender(globalActiveHabbitId);
+    saveData();
     
 }
 

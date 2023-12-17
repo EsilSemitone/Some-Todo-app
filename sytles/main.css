@@ -46,7 +46,22 @@ body {
     gap: 25px;
 }
 
+.delete__habbit {
+    opacity: 0;
+    z-index: 2;
+    /* display: none; */
+    position: absolute;
+    right: 0px; 
+    top: 10px;
+    background: rgb(240, 241, 241);
+    border: none;
+    border-radius: 50%;
+    transition: all 0.2s ease-out;
+}
+
 .menu__item {
+    z-index: 2;
+    position: relative;
     transition: background-color  0.2s ease-out;
 
     border: none;
@@ -58,12 +73,21 @@ body {
     cursor: pointer;
 }
 
+.menu__item:hover .delete__habbit {
+    z-index: 1;
+    opacity: 1;
+    /* display: block; */
+    cursor: pointer;
+    right: -25px;
+}
+
 .menu__item:hover {
     
     background-color: #6a6afb;
 }
 
 .menu__item:hover img{
+    z-index: 2;
     filter: brightness(0) invert(1);
 }
 
